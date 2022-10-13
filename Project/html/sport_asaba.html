@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/sport_asaba.css">
+	<link rel="icon" href="../asset/SELA_Logo_1.png">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js"></script>
+	<script src="../JS/script.js"></script>
+	<title>SÉLA</title>
+</head>
+<body>
+	<div class="MainContent" id="maincontent">
+		<div class="header">
+			<!-- ADA ONLOAD OFF -->
+			<img class="logo" src="../asset/SELA_Logo_1.png" alt="" onload="off()"> 
+			
+			<div class="button-username-container">
+				<button class="button-username">Eric</a></button>
+			</div>
+		</div>
+	
+		<div class="nav-bar">   
+			<table>
+				<thead>
+					<th><a href="../html/Menu.html">HOME</a></th>
+					<th><a href="../html/sport.html">SPORTS</a></th>
+					<th><a href="#">ABOUT US</a></th>
+					<th><a href="#">NEWS</a></th>
+					<th><a href="#">HELP</a></th>
+				</thead>
+			</table>
+		</div>
+	
+		<img class="konten-1" src="../asset/Asaba.jpeg" alt="">
+	
+		<div class="content-2">
+			<div class="content-2-1">
+				<h2>ASABA GREEN ARENA</h2>
+				<p>13, Jl. Jelambar Bar. III No.7, RT.13/RW.11, Jelambar Baru, Kec. Grogol petamburan, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11460</p>
+			</div>
+	
+			<div class="content-2-2">
+				<p>Futsal - Basket Indoor<p>
+			</div>
+		</div>
+	
+		<div class="content-3">
+			<div class="content-3-1">
+				<h4>Deskripsi</h4>
+				<p>Asaba Green Arena merupakan salah satu Fasilitas Olahraga yang ada di Jakarta Barat, menyediakan Lapangann Futsal dan Lapangan Basket.
+					<br>
+					<br>
+					Asaba Green Arena merupakan fasilitas olahraga Indoor dan outdoor, jadi pengguna dapat memilih sesuai dengan keinginan.
+					<br>
+					<br>
+					Tidak diperbolehkan membawa makanan dan minuman dari luar. Diwajibkan untuk membeli makanan maupun minuman pada pihak Venue Lapangan.</p>
+			
+				<div class="content-3-2">
+					<h4>Fasilitas</h4>
+					<img class="img-3-2" src="../asset/Fasilitas.jpg" alt="">
+				</div>
+			</div>
+			
+			<div class="content-3-3">
+				<h4>Jam Operasional</h4>
+				<img src="../asset/JamOperasional.jpg" alt="">
+			</div>
+		</div>
+	
+		<div class="content-4">
+			<h3>Cek tanggal dan waktu yang tersedia</h3>
+		</div>
+	
+		<div class="content-5">
+			<form action="">
+				<div class="content-5-1">
+					<select id="tipe-lapangan" onchange="countPrice()">	
+					<option value="Pilih Lapangan" selected="selected">Pilih Lapangan</option>
+					<option value="Basket">Basket</option>
+					<option value="Futsal - Indoor">Futsal - Indoor</option>
+					<option value="Futsal - Outdoor">Futsal - Outdoor</option>
+					</select>
+					
+					<input id="tanggal" type="date" placeholder="Tanggal" onclick="checkDate()">
+	
+					<input id="jam" type="time" placeholder="Jam" min="08:00" max="22:00" oninput="checkTime()">
+					
+					<select id="durasi" onchange="countPrice()">	
+						<option value="1" selected="selected">1 Jam</option>
+						<option value="2">2 Jam</option>
+						<option value="3">3 Jam</option>
+						<option value="4">4 Jam</option>
+						<option value="5">5 Jam</option>
+					</select>
+	
+					<input id="harga" type="text" value="Rp 0" disabled="true">
+
+					<div class="content-5-2" id="Content-5-2" >
+						<input id="reservasi" type="button"  value="Reservasi Sekarang" class="Reservasi" onclick="on()"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	
+		<footer class="footer">
+			<div class="footer-container">
+				<p class="text-center">Get connected with us on social media!</p>
+				<ul class="social_footer_ul">
+					<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+					<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+				</ul>
+				<p class="text-center"><i class="fa fa-copyright"></i> 2022 SÉLA.inc - RP All Rights Reserved.</p>
+			</div>
+		</footer>
+	</div>
+
+	<!-- method pembayaran -->
+	<div class="overlay" id="Overlay" >
+		<div id="bgoverlay">
+			<div class="overlay-container">
+				<img class="overlay-img" src="../asset/SELA_Logo_1.png" onload="showPayOff()">
+				<h3>Total Biaya</h3>
+				<h4 id="InLine-Harga">Rp X</h4>
+
+				<h3 class="margin-top">Metode Pembayaran</h3>
+				
+				<!-- button 3  -->
+				<div class="payment-method">
+					<button onclick="changeBG_BCA()" id="bca" class="margin-top format-payment"><img class="payment" src="../asset/BCA.png" alt=""></button>
+					<button onclick="changeBG_Dana()" id="ovo" class="margin-top format-payment"><img class="payment" src="../asset/ovo.png" alt=""></button>
+					<button onclick="changeBG_Ovo()" id="dana" class="margin-top format-payment"><img class="payment-dana" src="../asset/Dana.png" alt=""></button>
+				</div>
+				<button type="submit" class="format-bayar" onclick="showPayOn()">Bayar</button>
+				<button class="cancel-btn" onclick="off()">Cancel</button>
+			</div>
+		</div>	
+	</div>
+
+	<!-- utk kedua -->
+	<div class="overlay-payment" id="Overlay-Payment">
+		<div id="bgoverlay">
+			<div class="overlay-showpay-container">
+				<img class="overlay-img" src="../asset/SELA_Logo_1.png" onload="showPayDoneOff()">
+				<h3>Transaksi Batal Otomatis dalam : 1 hari penuh</h3>
+				<h3>Pembayaran dilakukan dengan metode <br> pembayaran :</h3>
+				<img class="showpay-bca" src="../asset/Bca.png" alt="">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
